@@ -1,0 +1,11 @@
+2023-02-26 02:24:58 [DEBUG] src.evaluation.config: Logger initialized
+2023-02-26 02:24:59 [INFO] numexpr.utils: NumExpr defaulting to 8 threads.
+2023-02-26 02:24:59 [INFO] src.evaluation.evaluator: Training LSTM-ED on train\qtdbsel102 with seed 3424441244
+2023-02-26 02:24:59 [DEBUG] root: Epoch 1/50.
+2023-02-26 02:25:04 [DEBUG] root: Epoch 2/50.
+2023-02-26 02:25:09 [DEBUG] root: Epoch 3/50.
+2023-02-26 02:25:13 [DEBUG] root: Epoch 4/50.
+2023-02-26 02:25:18 [DEBUG] root: Epoch 5/50.
+2023-02-26 02:25:23 [DEBUG] root: Epoch 6/50.
+2023-02-26 02:25:29 [DEBUG] root: Epoch 7/50.
+2023-02-26 02:25:34 [DEBUG] root: Epoch 8/50.

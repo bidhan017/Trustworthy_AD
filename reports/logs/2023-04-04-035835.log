@@ -1,0 +1,7 @@
+2023-04-04 03:58:35 [DEBUG] src.evaluation.config: Logger initialized
+2023-04-04 03:58:36 [INFO] numexpr.utils: NumExpr defaulting to 8 threads.
+2023-04-04 03:58:36 [INFO] src.evaluation.evaluator: Training GRU-ED on train\qtdbsel102 with seed 3424441244
+2023-04-04 03:58:36 [DEBUG] root: Epoch 1/5.
+2023-04-04 03:58:38 [DEBUG] root: Epoch 2/5.
+2023-04-04 03:58:40 [DEBUG] root: Epoch 3/5.
+2023-04-04 03:58:42 [DEBUG] root: Epoch 4/5.

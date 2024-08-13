@@ -1,0 +1,56 @@
+# Python CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-python/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.5
+    working_directory: ~/repo
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "requirements.txt" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt --exists-action=w
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+
+      # run tests!
+      - run:
+          name: run linting and metrics
+          command: |
+            . venv/bin/activate
+            echo "backend: Agg" > /home/circleci/repo/venv/lib/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc
+            flake8 || true
+            pytest
+            vulture . --exclude=third_party,venv || true
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
+
+workflows:
+  version: 2
+  commit-workflow:
+    jobs:
+      - build 
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "0 1 * * 0"
+          filters:
+            branches:
+              only: master
+    jobs:
+      - build
